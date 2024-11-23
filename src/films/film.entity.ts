@@ -9,7 +9,7 @@ import { SpecialFeature } from "./enum/special-feature.enum";
 
 @Entity()
 export class Film {
-  @PrimaryGeneratedColumn({ name: 'film_id' })
+  @PrimaryGeneratedColumn({ name: 'film_id', type: 'smallint', unsigned: true })
   filmId: number;
 
   @Column()
