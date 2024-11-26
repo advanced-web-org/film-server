@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package films;
+
+import "google/protobuf/empty.proto";
+
+service FilmsService {
+  rpc FindAll (google.protobuf.Empty) returns (FilmResponseList) {}
+}
+
+message FilmResponseList {
+  repeated FilmResponse films = 1; // Repeated list of FilmResponse
+}
+
+message FilmResponse {
+  uint32 filmId = 1;
+  string title = 2;
+  string description = 3;
+  uint32 releaseYear = 4;
+  uint32 languageId = 5;
+  uint32 rentalDuration = 6;
+  double rentalRate = 7;
+  double replacementCost = 8;
+  Rating rating = 9;
+  repeated SpecialFeature specialFeatures = 10;
+  string lastUpdate = 11;
+}
+
+enum Rating {
+  G = 0;
+  PG = 1;
+  PG_13 = 2;
+  R = 3;
+  NC_17 = 4;
+}
+
+enum SpecialFeature {
+  Trailers = 0;
+  Commentaries = 1;
+  DeletedScenes = 2;
+  BehindTheScenes = 3;
+}
